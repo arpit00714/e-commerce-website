@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { CartContext } from './context/CartContext';
+import { Link } from 'react-router-dom';
 
 function Album({album}) {
   const { addItem} = useContext(CartContext)
@@ -10,6 +11,7 @@ function Album({album}) {
     addItem(album, album.quantity)
   }
   return (
+    <Link to={`/product/${album.id}`}>
     <Card style={{ width: '18rem', marginBottom : '2rem' }}>
     <Card.Img variant="top" src={album.imageUrl}/>
     <Card.Body>
@@ -20,6 +22,7 @@ function Album({album}) {
       <Button variant="info" onClick={onAdd}>Add to Cart</Button>
     </Card.Body>
   </Card>
+  </Link>
   )
 }
 
