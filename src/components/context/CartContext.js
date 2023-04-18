@@ -7,6 +7,14 @@ const CartProvider = (props) => {
   const [cartItems, setcartItems] = useState([])
   const [quantity, setQuantity] = useState(0)
 
+  const [token, setToken] = useState(localStorage.getItem('token'));
+
+
+  const loginHandler = (token) => {
+    setToken(token);
+    localStorage.setItem('token',token)
+  };
+
   const addItemToCartHandler = (product, quantity) => {
 
     setQuantity( prevQty => prevQty + quantity)
@@ -29,19 +37,19 @@ const CartProvider = (props) => {
     }
   };
 
-  const removeItemFromCartHandler = (id) => {
-    const newcartItems = cartItems.filter(item => item.id !== id);
-    let foundItem = cartItems.find((item) => item.id === id);
+  // const removeItemFromCartHandler = (id) => {
+  //   const newcartItems = cartItems.filter(item => item.id !== id);
+  //   let foundItem = cartItems.find((item) => item.id === id);
 
-    if (quantity > 0) setQuantity(prevQty => prevQty - 1)
-    if (foundItem.quantity > 1) {
-      setcartItems([...newcartItems, { ...foundItem, quantity: foundItem.quantity - 1 } ])
-    } else {
+  //   if (quantity > 0) setQuantity(prevQty => prevQty - 1)
+  //   if (foundItem.quantity > 1) {
+  //     setcartItems([...newcartItems, { ...foundItem, quantity: foundItem.quantity - 1 } ])
+  //   } else {
 
-      setcartItems(newcartItems);
-    }
+  //     setcartItems(newcartItems);
+  //   }
 
-  };
+  // };
 
   const cartContext = {
     cartItems,
