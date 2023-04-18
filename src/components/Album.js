@@ -12,10 +12,11 @@ function Album({album}) {
   }
 
   return (
-    <>
-    <Link to={`/product/${album.id}`}>
+    
     <Card style={{ maxWidth: '18rem', marginBottom : '2rem' }}>
+    <Link to={`/product/${album.id}`}>
     <Card.Img variant="top" src={album.imageUrl}/>
+    </Link>
     <Card.Body>
       <Card.Title>{album.title}</Card.Title>
       <Card.Text>
@@ -24,8 +25,7 @@ function Album({album}) {
       <Button variant="info" onClick={onAdd}>Add to Cart</Button>
     </Card.Body>
   </Card>
-  </Link>
-  </>
+  
   )
 }
 

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Badge, Button, Figure, Stack } from "react-bootstrap";
-import ListGroup from "react-bootstrap/ListGroup";
-import Container from "react-bootstrap/Container";
+// import ListGroup from "react-bootstrap/ListGroup";
+// import Container from "react-bootstrap/Container";
 import { CartContext } from "./context/CartContext";
 
 function Cart() {
@@ -23,7 +23,7 @@ function Cart() {
         <Stack
           direction="horizontal"
           className="flex justify-content-between"
-          key={el.id}
+          key={el._id}
         >
           <Figure className="d-flex flex-column">
             <Figure.Image
@@ -47,9 +47,10 @@ function Cart() {
         </Stack>
       ))}
 
-      <h3>
+      {/* <h3>
         <strong>Total : </strong> $27.09
-      </h3>
+      </h3> */}
+       {/* <h3><strong>Total : </strong> $00.00</h3> */}
       <Button variant="info">Purchase</Button>
     </div>
   );

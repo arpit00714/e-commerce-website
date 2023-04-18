@@ -1,6 +1,8 @@
-
+import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Album from './Album';
+import { CartContext } from './context/CartContext';
 
 // const productsArr  = [
 //   {
@@ -30,6 +32,15 @@ import {productsArr} from '../assets/data'
 
 
 function Store() {
+
+  const { user } = useContext(CartContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+
+    if (!user) navigate('/login')
+  }, [user]);
+
   return (
     <>
 
